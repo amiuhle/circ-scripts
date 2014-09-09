@@ -6,7 +6,7 @@
 
   this.onMessage = function(e) {
     var victim = e.args[0];
-    var weapon = e.args[1] || 'a large trout';
+    var weapon = e.args.slice(1).join(' ') || 'a large trout';
     send(e.context, 'command', 'me', 'slaps ' + victim + ' around a bit with ' + weapon);
     propagate(e, 'none');
   };
